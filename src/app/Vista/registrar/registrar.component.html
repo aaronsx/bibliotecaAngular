@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col text-center m-3">
+            <h2>Cliente</h2>
+        </div>
+    </div>
+    <div class="form-container">    
+        <form [formGroup]="form" (submit)="registrar()" class="your-form-class">
+            <div class="form-group text-center">
+                <label  for="correo">Correo:</label>
+                <input formControlName="correo" class="form-control">
+            </div>
+            <div *ngIf="form.controls['nombre'].errors" class="text-danger">
+                El correo es obligatorio 
+            </div>
+            <div class="form-group text-center">
+                <label  for="nombre">Nombre:</label>
+                <input formControlName="nombre" class="form-control">
+            </div>
+            <div *ngIf="form.controls['nombre'].errors" class="text-danger">
+                El nombre es obligatorio 
+            </div>
+            <div class="form-group text-center">
+                <label  for="apellido">Apellido:</label>
+                <input formControlName="apellido" class="form-control">
+            </div>
+            <div *ngIf="form.controls['apellido'].errors" class="text-danger">
+                El apellido es obligatorio 
+            </div>
+            <div class="form-group text-center">
+                <label  for="dni">Dni:</label>
+                <input formControlName="dni" class="form-control" oninput="javascript: if (!/^\d*[0-9A-Za-z]$/.test(this.value)) this.value = this.value.slice(0, -1);">
+            </div>
+            <div *ngIf="form.controls['dni'].errors" class="text-danger">
+                El dni es obligatorio 
+            </div>
+            <div class="form-group text-center">
+                <label  for="telefono">Telefono:</label>
+                <input formControlName="telefono" class="form-control">
+            </div>
+            <div *ngIf="form.controls['telefono'].errors" class="text-danger">
+                El telefono es obligatorio 
+            </div>
+            <div class="form-group text-center">
+                <label for="pass">Clave:</label>
+                <input formControlName="pass" class="form-control" >
+            </div>
+            <div *ngIf="form.controls['pass'].errors" class="text-danger">
+                La contraseña es obligatorio 
+            </div>
+            
+            <div class="row">
+                <div class="form-group col text-center m-3">
+                    <button class="button-23" role="button"  
+                    style="margin-top: 15px; margin-bottom: 10px;"
+                    type="submit"
+                    [disabled]="!form.valid"
+                    >Enviar</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
